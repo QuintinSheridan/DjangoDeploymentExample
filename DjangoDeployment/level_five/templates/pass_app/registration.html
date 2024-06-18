@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% extends 'pass_app/base.html'%}
+{% comment %} {% load staticfiles %} {% endcomment %}
+
+{% block body_block %}
+    <div class="mt-4 p-5 bg-primary text-white rounded">
+        {% if registered %}
+            <h1> Thankyou for registering! </h1>
+        {% else%}
+            <h1>Register Here!</h1>
+            <form class="" method="post" enctype="multipart/formdata">
+            {% csrf_token %}
+            {{user_form.as_p}}
+            {{profile_form.as_p}}
+            <input type="submit" name="userForm" value="Register"></input>
+        {% endif %}
+    </div>
+
+{% endblock %}
